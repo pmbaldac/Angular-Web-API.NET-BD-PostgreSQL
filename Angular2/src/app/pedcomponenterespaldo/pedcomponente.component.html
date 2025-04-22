@@ -1,0 +1,28 @@
+<h3 class="text-center">{{title}}</h3>
+
+<table id="datos" class="table table-hover table-bordered custom-width">
+    <thead>
+        <tr>
+        <th>#</th>
+        <th>Nombre Almacen</th>
+        <th>Url</th>
+        <th>Monto</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(so of listSistOp; track so.id){
+        @if (so.monto < 50){
+            <tr>
+                <td id="num">{{ so.id }}</td>
+                <td>{{ so.nombre }}</td>
+                <td id="url"><a [href]="so.url" target="_blank">Visitar</a></td>
+                <td id="monto">{{ so.monto | number:'1.2-2' }}</td>
+            </tr>
+        }
+        }
+        <tr>
+            <td colspan="3"><b>Total</b></td>
+            <td id="montototal">{{ totalMonto | number:'1.2-2' }}</td>
+        </tr>
+    </tbody>
+</table>

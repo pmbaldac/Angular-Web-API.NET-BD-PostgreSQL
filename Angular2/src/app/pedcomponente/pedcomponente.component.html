@@ -1,0 +1,74 @@
+<h3 class="text-center text-primary">{{title}}</h3>
+
+<!--table id="datos" class="table table-hover table-bordered custom-width">
+    <thead>
+        <tr>
+        <th>#</th>
+        <th>ECOMM</th>
+        <th>Estatus</th>
+        <th>Fecha Creacion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(ec of listEcomm; track ec.ECOMMID){
+            
+                <tr>
+                    @if (ec.ORDERCUST == 'Fallidas') {
+                        <td id="num" class="highlight">{{ ec.ECOMMID }}</td>
+                        <td class="highlight">{{ ec.ECOMMNAME }}</td>
+                        <td class="highlight">{{ ec.ORDERCUST }}</td>
+                        <td class="highlight">{{ ec.CREATEDDATERP }}</td>
+                    } @else {
+                        <td id="num">{{ ec.ECOMMID }}</td>
+                        <td>{{ ec.ECOMMNAME }}</td>
+                        <td>{{ ec.ORDERCUST }}</td>
+                        <td>{{ ec.CREATEDDATERP }}</td>
+                    }
+                </tr>
+        }
+        <tr>
+           
+        </tr>
+    </tbody>
+</table!-->
+
+<div class="text-search">
+    <mat-form-field>
+        <mat-label>Buscar</mat-label>
+        <input matInput placeholder="Ingrese Informacion" [(ngModel)]="searchText" (keyup)="onInputChange()">
+    </mat-form-field>
+</div>
+
+<div>
+    <table mat-table [dataSource]="listEcommDataSource" class="mat-elevation-z8 table table-hover" matSort (matSortChange)="sortData($event)">
+
+        <ng-container matColumnDef="ECOMMID">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="ECOMMID"> # </th>
+          <td id="num" mat-cell *matCellDef="let element" [ngClass]="{'highlight': element.ORDERCUST === 'Fallidas'}"> {{element.ECOMMID}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="ECOMMNAME">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="ECOMMNAME"> ECOMMNAME </th>
+          <td mat-cell *matCellDef="let element" [ngClass]="{'highlight': element.ORDERCUST === 'Fallidas'}"> {{element.ECOMMNAME}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="ORDERCUST">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="ORDERCUST"> ORDERCUST </th>
+          <td mat-cell *matCellDef="let element" [ngClass]="{'highlight': element.ORDERCUST === 'Fallidas'}"> {{element.ORDERCUST}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="CREATEDDATERP">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header="CREATEDDATERP"> CREATEDDATERP </th>
+          <td mat-cell *matCellDef="let element" [ngClass]="{'highlight': element.ORDERCUST === 'Fallidas'}"> {{element.CREATEDDATERP}} </td>
+        </ng-container>
+         
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 15, 20]"
+                     showFirstLastButtons
+                     aria-label="Select page">
+      </mat-paginator>
+</div>
+

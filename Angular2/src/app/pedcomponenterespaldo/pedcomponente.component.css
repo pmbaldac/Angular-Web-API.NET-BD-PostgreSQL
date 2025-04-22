@@ -1,0 +1,14 @@
+.text-center, th, #url, #num {
+    text-align: center;
+  }
+
+.custom-width {
+    width: 50%; 
+    margin: 0 auto; 
+  }
+
+  #monto, #montototal {
+    text-align: right;
+  }
+  
+ 
