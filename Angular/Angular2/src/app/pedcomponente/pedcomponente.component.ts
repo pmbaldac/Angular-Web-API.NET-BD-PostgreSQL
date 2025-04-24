@@ -73,6 +73,7 @@ export class PedcomponenteComponent implements OnInit {
     this.feedDataSource(sortedData);
   }
 
+  //Buscar por el input
   onInputChange() {
     console.log('Prueba' + this.searchText);
     this.filterData();
