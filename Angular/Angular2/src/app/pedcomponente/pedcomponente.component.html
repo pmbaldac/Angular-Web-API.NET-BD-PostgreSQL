@@ -36,30 +36,30 @@
   <div class="text-search">
       <mat-form-field>
           <mat-label>Buscar</mat-label>
-          <input matInput placeholder="Ingrese Informacion" [(ngModel)]="searchText" (keyup)="onInputChange()">
+          <input matInput placeholder="Ingrese Información" [(ngModel)]="searchText" (keyup)="onInputChange()">
       </mat-form-field>
-      <img src="Buscar.jpg" class="ecomm-img">
+      <img src="Buscar.jpg" class="ecomm-img" matTooltipClass="search-tooltip" matTooltip="Ingrese frase a filtrar" matTooltipPosition="right" matTooltipShowDelay="500" matTooltipHideDelay="1000">
   </div>
 
   <div class="d-flex">
     
     <div class="form-group">
-      <label for="nro">Nro.</label>
+      <label for="nro" matTooltip="Número Items" matTooltipPosition="right">Nro.</label>
       <input type="text" id="nro" readonly class="form-control mr-2" aria-label="nro" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST === 'Fallidas'}" [(ngModel)]="selectedRow.ECOMMID">
     </div>
 
     <div class="form-group">
-      <label for="ecommname">Ecommname</label>
+      <label for="ecommname" matTooltip="Nombre Tienda" matTooltipPosition="right">Ecommname</label>
       <input type="text" id="ecommname" readonly class="form-control mr-2" aria-label="ecommname" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST === 'Fallidas'}" [(ngModel)]="selectedRow.ECOMMNAME">
     </div>
 
     <div class="form-group">
-      <label for="ordercust">Ordercust</label>
+      <label for="ordercust" matTooltip="Estatus" matTooltipPosition="right">Ordercust</label>
       <input type="text" id="ordercust" readonly class="form-control mr-2" aria-label="ordercust" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST === 'Fallidas'}" [(ngModel)]="selectedRow.ORDERCUST">
     </div>
 
     <div class="form-group">
-      <label for="createddaterp">Createddaterp</label>
+      <label for="createddaterp" matTooltip="Fecha Creación" matTooltipPosition="right">Createddaterp</label>
       <input type="text" id="createddaterp" readonly class="form-control mr-2" aria-label="createddaterp" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST === 'Fallidas'}" [(ngModel)]="selectedRow.CREATEDDATERP">
     </div>
 

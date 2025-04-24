@@ -5,12 +5,13 @@ import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { Sort, MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-pedcomponente',
-  imports: [MatTableModule, MatPaginator, MatPaginatorModule, MatSortModule, MatInputModule, FormsModule, CommonModule],
+  imports: [MatTableModule, MatPaginator, MatPaginatorModule, MatSortModule, MatInputModule, MatTooltipModule, FormsModule, CommonModule],
   templateUrl: './pedcomponente.component.html',
   styleUrls: ['./pedcomponente.component.css'],
   providers: [ApiService]
