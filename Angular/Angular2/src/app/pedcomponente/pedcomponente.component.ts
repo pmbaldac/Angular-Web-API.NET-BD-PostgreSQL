@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 })
 
 export class PedcomponenteComponent implements OnInit {
+  //Variables
   title = 'Tiendas';
   searchText:string="";
   //searchTerm: string = '';
@@ -24,11 +25,13 @@ export class PedcomponenteComponent implements OnInit {
 
   listEcomm!:PostModel[];
   displayedColumns: string [] = ['ECOMMID', 'ECOMMNAME', 'ORDERCUST', 'CREATEDDATERP'];
+  selectedRow = { ECOMMID: '', ECOMMNAME: '', ORDERCUST: '', CREATEDDATERP: '' };
   listEcommDataSource = new MatTableDataSource<PostModel>([]);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private apiService: ApiService) { }
 
+  //Obtener datos de la api
   ngOnInit() {
     this.apiService.getData().subscribe(data => {
       this.listEcomm = data;
@@ -36,11 +39,13 @@ export class PedcomponenteComponent implements OnInit {
     });
   }
 
+  //Pasar datos a listEcommDataSource
   feedDataSource(data:PostModel[]){
     this.listEcommDataSource = new MatTableDataSource<PostModel>(data);
     this.listEcommDataSource.paginator = this.paginator;
   }
 
+  //Ordendar datos
   sortData(sort: Sort) {
     const data = this.listEcomm.slice();
     if (!sort.active || sort.direction === '') {
@@ -48,6 +53,7 @@ export class PedcomponenteComponent implements OnInit {
       return;
     }
 
+    //Ordernar por campos llamando la funcion compare
     const sortedData = data.sort((a,b) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active){
@@ -72,6 +78,7 @@ export class PedcomponenteComponent implements OnInit {
     this.filterData();
   }
 
+  //Filtrar datos
   filterData(){
     const search = this.searchText;
     const data = this.listEcomm.slice();
@@ -80,6 +87,7 @@ export class PedcomponenteComponent implements OnInit {
       return;
     }
 
+    //Retornar datos filtrados
     const dataFiltered = data.filter(item=>{
       return item.ECOMMNAME.toUpperCase().includes(search.toUpperCase()) ||
              item.ECOMMID.toString().includes(search.toUpperCase()) ||
@@ -88,6 +96,11 @@ export class PedcomponenteComponent implements OnInit {
     });
 
     this.feedDataSource(dataFiltered);
+  }
+
+  //Pasar datos a los input al hacer click en la tabla
+  selectRow(row: any) {
+    this.selectedRow = { ...row };
   }
 
   /*get totalMonto(): number {
@@ -106,6 +119,8 @@ export class PedcomponenteComponent implements OnInit {
   }*/
 }
 
+//Devuele 1 o -1 dependiendo la comparacion entre a y b y ajusta el resultado segun el valor de isAsc, para determinar el orden. 
 function compare(a: number | string, b: number | string, isAsc: boolean) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }
+  

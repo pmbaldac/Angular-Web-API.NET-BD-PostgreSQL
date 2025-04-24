@@ -31,44 +31,72 @@
         </tr>
     </tbody>
 </table!-->
+<div class="container mt-2">
 
-<div class="text-search">
-    <mat-form-field>
-        <mat-label>Buscar</mat-label>
-        <input matInput placeholder="Ingrese Informacion" [(ngModel)]="searchText" (keyup)="onInputChange()">
-    </mat-form-field>
-</div>
+  <div class="text-search">
+      <mat-form-field>
+          <mat-label>Buscar</mat-label>
+          <input matInput placeholder="Ingrese Informacion" [(ngModel)]="searchText" (keyup)="onInputChange()">
+      </mat-form-field>
+  </div>
 
-<div>
-    <table mat-table [dataSource]="listEcommDataSource" class="mat-elevation-z8 table table-hover" matSort (matSortChange)="sortData($event)">
-
-        <ng-container matColumnDef="ECOMMID">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="ECOMMID"> # </th>
-          <td id="num" mat-cell *matCellDef="let element" [ngClass]="{'highlight': element.ORDERCUST === 'Fallidas'}"> {{element.ECOMMID}} </td>
-        </ng-container>
-      
-        <ng-container matColumnDef="ECOMMNAME">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="ECOMMNAME"> ECOMMNAME </th>
-          <td mat-cell *matCellDef="let element" [ngClass]="{'highlight': element.ORDERCUST === 'Fallidas'}"> {{element.ECOMMNAME}} </td>
-        </ng-container>
-      
-        <ng-container matColumnDef="ORDERCUST">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="ORDERCUST"> ORDERCUST </th>
-          <td mat-cell *matCellDef="let element" [ngClass]="{'highlight': element.ORDERCUST === 'Fallidas'}"> {{element.ORDERCUST}} </td>
-        </ng-container>
-      
-        <ng-container matColumnDef="CREATEDDATERP">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="CREATEDDATERP"> CREATEDDATERP </th>
-          <td mat-cell *matCellDef="let element" [ngClass]="{'highlight': element.ORDERCUST === 'Fallidas'}"> {{element.CREATEDDATERP}} </td>
-        </ng-container>
-         
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
+  <div class="d-flex">
     
-      <mat-paginator [pageSizeOptions]="[5, 10, 15, 20]"
-                     showFirstLastButtons
-                     aria-label="Select page">
-      </mat-paginator>
-</div>
+    <div class="form-group">
+      <label for="nro">Nro.</label>
+      <input type="text" id="nro" class="form-control mr-2" placeholder="#" aria-label="nro" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST === 'Fallidas'}" [(ngModel)]="selectedRow.ECOMMID">
+    </div>
 
+    <div class="form-group">
+      <label for="ecommname">Ecommname</label>
+      <input type="text" id="ecommname" class="form-control mr-2" placeholder="Ecommname" aria-label="ecommname" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST === 'Fallidas'}" [(ngModel)]="selectedRow.ECOMMNAME">
+    </div>
+
+    <div class="form-group">
+      <label for="ordercust">Ordercust</label>
+      <input type="text" id="ordercust" class="form-control mr-2" placeholder="Ordercust" aria-label="ordercust" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST === 'Fallidas'}" [(ngModel)]="selectedRow.ORDERCUST">
+    </div>
+
+    <div class="form-group">
+      <label for="createddaterp">Createddaterp</label>
+      <input type="text" id="createddaterp" class="form-control mr-2" placeholder="Createddaterp" aria-label="createddaterp" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST === 'Fallidas'}" [(ngModel)]="selectedRow.CREATEDDATERP">
+    </div>
+
+  </div>
+  
+  <hr>
+
+  <div>
+      <table mat-table [dataSource]="listEcommDataSource" class="mat-elevation-z8 table table-hover" matSort (matSortChange)="sortData($event)">
+
+          <ng-container matColumnDef="ECOMMID">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header="ECOMMID"> # </th>
+            <td id="num" mat-cell *matCellDef="let element" (click)="selectRow(element)" [ngClass]="{'highlight': element.ORDERCUST === 'Fallidas'}"> {{element.ECOMMID}} </td>
+          </ng-container>
+        
+          <ng-container matColumnDef="ECOMMNAME">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header="ECOMMNAME"> ECOMMNAME </th>
+            <td mat-cell *matCellDef="let element" (click)="selectRow(element)" [ngClass]="{'highlight': element.ORDERCUST === 'Fallidas'}"> {{element.ECOMMNAME}} </td>
+          </ng-container>
+        
+          <ng-container matColumnDef="ORDERCUST">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header="ORDERCUST"> ORDERCUST </th>
+            <td mat-cell *matCellDef="let element" (click)="selectRow(element)" [ngClass]="{'highlight': element.ORDERCUST === 'Fallidas'}"> {{element.ORDERCUST}} </td>
+          </ng-container>
+        
+          <ng-container matColumnDef="CREATEDDATERP">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header="CREATEDDATERP"> CREATEDDATERP </th>
+            <td mat-cell *matCellDef="let element" (click)="selectRow(element)" [ngClass]="{'highlight': element.ORDERCUST === 'Fallidas'}"> {{element.CREATEDDATERP}} </td>
+          </ng-container>
+          
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 15, 20]"
+                      showFirstLastButtons
+                      aria-label="Select page">
+        </mat-paginator>
+  </div>
+
+</div>

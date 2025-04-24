@@ -19,5 +19,24 @@
     padding-top: 20px;
     padding-left: 10px;
   }
+
+ .d-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+
+ .form-group {
+    margin: 10px;
+  }
+  
+  
+
+
+  
+
+
+  
   
  
