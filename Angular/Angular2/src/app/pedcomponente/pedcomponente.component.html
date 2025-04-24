@@ -45,22 +45,22 @@
     
     <div class="form-group">
       <label for="nro">Nro.</label>
-      <input type="text" id="nro" class="form-control mr-2" placeholder="#" aria-label="nro" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST === 'Fallidas'}" [(ngModel)]="selectedRow.ECOMMID">
+      <input type="text" id="nro" readonly class="form-control mr-2" placeholder="#" aria-label="nro" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST === 'Fallidas'}" [(ngModel)]="selectedRow.ECOMMID">
     </div>
 
     <div class="form-group">
       <label for="ecommname">Ecommname</label>
-      <input type="text" id="ecommname" class="form-control mr-2" placeholder="Ecommname" aria-label="ecommname" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST === 'Fallidas'}" [(ngModel)]="selectedRow.ECOMMNAME">
+      <input type="text" id="ecommname" readonly class="form-control mr-2" placeholder="Ecommname" aria-label="ecommname" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST === 'Fallidas'}" [(ngModel)]="selectedRow.ECOMMNAME">
     </div>
 
     <div class="form-group">
       <label for="ordercust">Ordercust</label>
-      <input type="text" id="ordercust" class="form-control mr-2" placeholder="Ordercust" aria-label="ordercust" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST === 'Fallidas'}" [(ngModel)]="selectedRow.ORDERCUST">
+      <input type="text" id="ordercust" readonly class="form-control mr-2" placeholder="Ordercust" aria-label="ordercust" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST === 'Fallidas'}" [(ngModel)]="selectedRow.ORDERCUST">
     </div>
 
     <div class="form-group">
       <label for="createddaterp">Createddaterp</label>
-      <input type="text" id="createddaterp" class="form-control mr-2" placeholder="Createddaterp" aria-label="createddaterp" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST === 'Fallidas'}" [(ngModel)]="selectedRow.CREATEDDATERP">
+      <input type="text" id="createddaterp" readonly class="form-control mr-2" placeholder="Createddaterp" aria-label="createddaterp" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST === 'Fallidas'}" [(ngModel)]="selectedRow.CREATEDDATERP">
     </div>
 
   </div>
@@ -71,7 +71,7 @@
       <table mat-table [dataSource]="listEcommDataSource" class="mat-elevation-z8 table table-hover" matSort (matSortChange)="sortData($event)">
 
           <ng-container matColumnDef="ECOMMID">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header="ECOMMID"> # </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header="ECOMMID"> Nro. </th>
             <td id="num" mat-cell *matCellDef="let element" (click)="selectRow(element)" [ngClass]="{'highlight': element.ORDERCUST === 'Fallidas'}"> {{element.ECOMMID}} </td>
           </ng-container>
         
