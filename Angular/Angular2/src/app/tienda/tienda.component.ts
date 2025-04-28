@@ -10,14 +10,14 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-pedcomponente',
+  selector: 'app-tienda',
   imports: [MatTableModule, MatPaginator, MatPaginatorModule, MatSortModule, MatInputModule, MatTooltipModule, FormsModule, CommonModule],
-  templateUrl: './pedcomponente.component.html',
-  styleUrls: ['./pedcomponente.component.css'],
+  templateUrl: './tienda.component.html',
+  styleUrls: ['./tienda.component.css'],
   providers: [ApiService]
 })
 
-export class PedcomponenteComponent implements OnInit {
+export class TiendaComponent implements OnInit {
   //Variables
   title = 'Tiendas';
   searchText:string="";

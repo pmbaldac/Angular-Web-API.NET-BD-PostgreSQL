@@ -2,32 +2,32 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-pedcomponente',
+  selector: 'app-sistemasoperativos',
   //standalone: true,
-  templateUrl: './pedcomponente.component.html',
-  styleUrl: './pedcomponente.component.css',
+  templateUrl: './sistemasoperativos.component.html',
+  styleUrl: './sistemasoperativos.component.css',
   imports: [CommonModule]
 })
-export class PedcomponenteComponent {
-  title = 'Tiendas';
+export class SistemasOperativosComponent {
+  title = 'Sistemas Operativos';
   searchTerm: string = '';
 
   listSistOp = [
     {
       "id": "1",
-      "nombre": "Almacen 1",
+      "nombre": "Windows",
       "url": "https://www.microsoft.com/windows",
       "monto": 20.23
     },
     {
       "id": "2",
-      "nombre": "Almacen 2",
+      "nombre": "Linux",
       "url": "https://www.linux.org",
       "monto": 21.64
     },
     {
       "id": "3",
-      "nombre": "Almacen 3",
+      "nombre": "Macintosh",
       "url": "https://www.apple.com/macos",
       "monto": 22.7
     },
