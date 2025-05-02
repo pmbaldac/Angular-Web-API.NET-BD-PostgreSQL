@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-sistemasoperativos',
-  //standalone: true,
+  imports: [MenuComponent, CommonModule],
   templateUrl: './sistemasoperativos.component.html',
-  styleUrl: './sistemasoperativos.component.css',
-  imports: [CommonModule]
+  styleUrl: './sistemasoperativos.component.css'
 })
-export class SistemasOperativosComponent {
+export class SistemasoperativosComponent {
   title = 'Sistemas Operativos';
   searchTerm: string = '';
 
@@ -47,5 +47,4 @@ export class SistemasOperativosComponent {
       return acc;
     }, 0);
   };
-
 }

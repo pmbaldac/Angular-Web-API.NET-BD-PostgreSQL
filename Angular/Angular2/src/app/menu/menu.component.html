@@ -1,11 +1,11 @@
-<!--button mat-button [matMenuTriggerFor]="menu">Menu</button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item>Tiendas</button>
-  <button mat-menu-item>Sistemas Operativos</button>
-</mat-menu!-->
+<!--nav>
+    <a routerLink="/tiendas">Tiendas</a>
+    |
+    <a routerLink="/sistemasoperativos">SO</a>
+</nav!-->
 
 <button mat-button [matMenuTriggerFor]="menu">Menu</button>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item routerLink="/tienda">Tiendas</button>
-  <button mat-menu-item routerLink="/sistemas-operativos">Sistemas Operativos</button>
+  <button mat-menu-item routerLink="/tiendas">Tiendas</button>
+  <button mat-menu-item routerLink="/sistemasoperativos">Sistemas Operativos</button>
 </mat-menu>
