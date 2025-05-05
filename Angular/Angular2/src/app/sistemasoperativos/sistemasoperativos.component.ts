@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from '../menu/menu.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sistemasoperativos',
@@ -39,6 +40,8 @@ export class SistemasoperativosComponent {
     }
   ];
 
+  constructor(private router: Router) { }
+
   get totalMonto(): number {
     return this.listSistOp.reduce((acc, so) => {
       if (so.monto < 50) {
@@ -47,4 +50,11 @@ export class SistemasoperativosComponent {
       return acc;
     }, 0);
   };
+
+  ngOnInit() {
+    const sesion = sessionStorage.getItem('iniciosesion');
+    if (sesion?.toString() != "true"){
+      this.router.navigate(['inicio-sesion']);
+    }
+  }
 }

@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tiendas',
@@ -31,14 +32,19 @@ export class TiendasComponent {
   listEcommDataSource = new MatTableDataSource<PostModel>([]);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private router: Router) { }
 
   //Obtener datos de la api
   ngOnInit() {
-    this.apiService.getData().subscribe(data => {
-      this.listEcomm = data;
-      this.feedDataSource(data);
-    });
+    const sesion = sessionStorage.getItem('iniciosesion');
+    if (sesion?.toString() == "true"){
+      this.apiService.getData().subscribe(data => {
+        this.listEcomm = data;
+        this.feedDataSource(data);
+      });
+    } else {
+      this.router.navigate(['inicio-sesion']);
+    }
   }
 
   //Pasar datos a listEcommDataSource
