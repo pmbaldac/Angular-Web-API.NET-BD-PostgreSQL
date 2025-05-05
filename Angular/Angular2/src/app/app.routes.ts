@@ -1,4 +1,5 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 export const routes: Routes = [
 
@@ -11,8 +12,12 @@ export const routes: Routes = [
         loadComponent: () => import('./sistemasoperativos/sistemasoperativos.component').then(c => c.SistemasoperativosComponent)
     },
     {
+        path: 'inicio-sesion',
+        loadComponent: () => import('./inicio-sesion/inicio-sesion.component').then(c => c.InicioSesionComponent)
+    },
+    {
         path:'',
-        redirectTo: 'tiendas',
+        redirectTo: 'inicio-sesion',
         pathMatch: 'full'
     }
 
