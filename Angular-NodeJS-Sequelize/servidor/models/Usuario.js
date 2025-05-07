@@ -38,8 +38,8 @@ const Usuario = sequelize.define('Usuario', {
 }, {
   tableName: 'usuarios', //Nombre de la tabla en la base de datos
   timestamps: true, // Si se desea que sequelize maneje createAT y updateAT
-  createdAt: 'createdAt', //Nomnre del campo createdAT
-  updateddAt: 'updateddAt', //Nomnre del campo updateddAT
+  createdAt: 'createdAt', //Nomnre del campo createdAt
+  updateddAt: 'updateddAt', //Nomnre del campo updateddAt
 });
 
 //Espera por la sincronización del modelo con la base de datos

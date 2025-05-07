@@ -1,6 +1,5 @@
 <div class="centrar">
   <h3>Iniciar sesión</h3>
-  <a href="">Ir al inicio</a>
 </div>
 
 <form (ngSubmit)="onSubmit()">
@@ -24,9 +23,9 @@
       <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
   </div>
-
 </form>
 
 <div class="centrar">
-  <a href="">Usuario no registrado</a>
+  <a routerLink= '/registrousuario'>Usuario no registrado</a>
 </div>
+<router-outlet></router-outlet>
