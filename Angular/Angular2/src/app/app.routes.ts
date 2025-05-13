@@ -8,6 +8,10 @@ export const routes: Routes = [
         loadComponent: () => import('./tiendas/tiendas.component').then(c => c.TiendasComponent)
     },
     {
+        path: 'grafico',
+        loadComponent: () => import('./pie-chart/pie-chart.component').then(c => c.PieChartComponent)
+    },
+    {
         path: 'sistemasoperativos',
         loadComponent: () => import('./sistemasoperativos/sistemasoperativos.component').then(c => c.SistemasoperativosComponent)
     },

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MenuComponent } from '../menu/menu.component';
-import { ApiService } from './api.service';
+import { ApiService } from '../api.service';
 import { PostModel } from '../models/postmodels.interface';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
