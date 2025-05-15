@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../api.service';
 import * as CryptoJS from 'crypto-js';
+import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -17,39 +18,53 @@ export class InicioSesionComponent {
   email: string = '';
   password: string = '';
   userValid: boolean = false;
-
+  tituloModal: string = 'Información';
+  infoModal: string = '';
   constructor(private apiService: ApiService, private router: Router) {
     sessionStorage.setItem('iniciosesion', 'false');
   }
 
   navigateToPage(): void {
-    console.log('Email: ', this.email);
-    console.log('Password: ', this.password);
-    //clave 12345
-   
-      this.apiService.getValidateCredentials(this.email, CryptoJS.MD5(this.password).toString())
+  console.log('Email: ', this.email);
+  console.log('Password: ', this.password);
+
+  if (this.email.trim() == ''){
+    const modalElement = document.getElementById('miModal') as HTMLElement;
+    if (modalElement) {
+      const modal = new bootstrap.Modal(modalElement);
+      this.infoModal = 'Ingrese correo electrónico';
+      modal.show();
+    }
+  } else if(this.password.trim() == '') {
+    const modalElement = document.getElementById('miModal') as HTMLElement;
+    if (modalElement) {
+      const modal = new bootstrap.Modal(modalElement);
+      this.infoModal = 'Ingrese correo contraseña';
+      modal.show();
+    }
+  } else {
+    this.apiService.getValidateCredentials(this.email, CryptoJS.MD5(this.password).toString())
       .subscribe({
         next: data => {
           this.userValid = data.UserValid; 
-          if (this.userValid){
+          if (this.userValid) {
             sessionStorage.setItem('iniciosesion', 'true');
             this.router.navigate(['tiendas']);
           } else {
-            alert ('Error en usuario y/o contraseña');
+            const modalElement = document.getElementById('miModal') as HTMLElement;
+            if (modalElement) {
+              const modal = new bootstrap.Modal(modalElement);
+              this.infoModal = 'Error en correo eletrónico y/o contraseña';
+              modal.show();
+            } else {
+              console.log('Error en correo eletrónico y/o contraseña');
+            }
           }
         },
         error: err => {
-          console.error("Error al validar usuario", err);
+          console.log('Error al validar usuario', err);
         }
       });
-
-    
-          
-          
-     
-    
-    
-    
+    }
   }
-
 }
