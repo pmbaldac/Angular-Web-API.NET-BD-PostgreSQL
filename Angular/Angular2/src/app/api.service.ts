@@ -4,13 +4,17 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class ApiService {
-  //private apiUrl = 'http://localhost:9096/api/ENI_LINKED_ORDERS_ECOM';
-  private apiUrl = '/api/ENI_LINKED_ORDERS_ECOM';
+  //private apiUrl = 'http://localhost:9097/api/ORDERS_ECOM';
+  private apiUrlOrdersEcom = '/api/ORDERS_ECOM';
+  private apiUrlValidateCredentials = '/api/ValidateCredentials';
 
   constructor(private http: HttpClient) { }
 
-  getData(): Observable<any> {
-    console.log('Pedro ' + this.apiUrl);
-    return this.http.get<any>(this.apiUrl);
+  getDataOrdersEcom(): Observable<any> {
+    return this.http.get<any>(this.apiUrlOrdersEcom);
+  }
+
+  getValidateCredentials(user: string, pass: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrlValidateCredentials}?sUser=${encodeURIComponent(user)}&sPass=${encodeURIComponent(pass)}`);
   }
 }

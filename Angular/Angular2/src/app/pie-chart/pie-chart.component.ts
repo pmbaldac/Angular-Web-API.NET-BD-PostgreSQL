@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   providers: [ApiService]
 })
 export class PieChartComponent {
-  title = 'Gráfico Estatus Tiendas';
+  title = 'Gráfico Estatus Ecommname';
   exito: number = 0;
   fallida: number = 0;
   constructor(private apiService: ApiService, private router: Router) { }
@@ -20,17 +20,25 @@ export class PieChartComponent {
   ngOnInit() {
     const sesion = sessionStorage.getItem('iniciosesion');
     if (sesion?.toString() == "true"){
-      this.apiService.getData().subscribe(data => {
+      
+      this.apiService.getDataOrdersEcom().subscribe({
+      next: data => {
         for (let i = 0; i < data.length; i++) {
           let status = data[i].ORDERCUST.toUpperCase();
-          if (status == 'EXITO'){
+          if (status === 'EXITO') {
             this.exito++;
           } else {
-            this.fallida++
+            this.fallida++;
           }
         }
         this.crearGrafico();
-      })
+      },
+      error: err => {
+        console.error("Error al obtener datos de Orders Ecom", err);
+        // Aquí podrías agregar un mensaje visual para el usuario si ocurre un error
+      }
+    });
+
     } else {
       this.router.navigate(['inicio-sesion']);
     }

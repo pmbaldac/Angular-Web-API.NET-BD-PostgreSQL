@@ -1,0 +1,51 @@
+clave 123456
+CREATE DATABASE ecom;
+
+\c ecom
+
+
+CREATE TABLE ORDERS_ECOM (
+    ECOMMNAME VARCHAR(50) NOT NULL,
+    ECOMMID NUMERIC(20,0) NOT NULL,
+    ORDERNUM NUMERIC(6,0) NOT NULL,
+    ORDERAMT NUMERIC NULL,
+    ORDERDATE DATE NULL,
+    ORDERCUST VARCHAR(30) NULL,
+    CREATEDDATERP DATE NULL,
+    RPROSID NUMERIC(20,0) NULL,
+    DOCNORP NUMERIC NULL,
+    FISCALDOCNO NUMERIC NULL,
+    NUMTRIES NUMERIC(1,0) NOT NULL,
+    ERRORMSG VARCHAR(80) NULL
+);
+
+INSERT INTO ORDERS_ECOM (
+    ECOMMNAME, ECOMMID, ORDERNUM, ORDERAMT, ORDERDATE, ORDERCUST, CREATEDDATERP, RPROSID, DOCNORP, FISCALDOCNO, NUMTRIES, ERRORMSG
+) VALUES
+    ('Caracas', 1, 1, 1, '2025-02-20', 'Exito', '2025-02-20', 1, 1, 1, 1, 1),
+    ('Charallave Sur', 2, 2, 2, '2025-02-20', 'Exito', '2025-02-20', 2, 2, 2, 2, 2),
+    ('Charallave Norte', 3, 3, 3, '2025-02-20', 'Fallidas', '2025-02-20', 3, 3, 3, 3, 3),
+    ('Cua', 4, 4, 4, '2025-02-20', 'Exito', '2025-02-20', 4, 4, 4, 4, NULL),
+    ('San Juan de los Morros', 5, 5, 5, '2025-02-20', 'Exito', '2025-02-20', 5, 5, 5, 5, NULL),
+    ('Ciudad Bolivar', 6, 6, 6, '2025-02-20', 'Exito', '2025-02-20', 6, 6, 6, 6, NULL),
+    ('Coro', 7, 7, 7, '2025-02-20', 'Exito', '2025-02-20', 3, 3, 7, 7, NULL),
+    ('Maracaibo', 8, 8, 8, '2025-02-20', 'Exito', '2025-02-20', 8, 8, 8, 8, NULL),
+    ('San Cristobal', 9, 9, 9, '2025-02-20', 'Exito', '2025-02-20', 9, 9, 9, 9, NULL),
+    ('San Fernando de Apure', 10, 10, 10, '2025-02-20', 'Exito', '2025-02-20', 10, 10, 10, 0, NULL),
+    ('Acarigua', 11, 11, 11, '2025-02-20', 'Exito', '2025-02-20', 11, 11, 11, 0, NULL),
+    ('Guarenas', 12, 12, 12, '2025-02-20', 'Fallidas', '2025-02-20', 12, 12, 12, 0, NULL),
+    ('Guatire', 13, 13, 13, '2025-02-20', 'Fallidas', '2025-02-20', 13, 13, 13, 0, NULL),
+    ('San Antonio de los Altos', 14, 14, 14, '2025-02-20', 'Fallidas', '2025-02-20', 14, 14, 14, 0, NULL),
+    ('Tucupita', 15, 15, 15, '2025-02-20', 'Fallidas', '2025-02-20', 15, 15, 15, 0, NULL),
+	('Curiapo', 16, 16, 16, '2025-02-20', 'Exito', '2025-02-20', 16, 16, 16, 0, NULL);
+	
+CREATE TABLE Users (
+    USERNAME VARCHAR(255) NOT NULL,
+    PASSWORD VARCHAR(32) NOT NULL,
+    ACTIVE BOOLEAN  NOT NULL
+);
+
+INSERT INTO Users (
+    USERNAME, PASSWORD, ACTIVE
+) VALUES
+    ('pedro@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', true);

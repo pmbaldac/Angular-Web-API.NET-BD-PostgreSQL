@@ -21,7 +21,7 @@ import { Router } from '@angular/router';
 
 export class TiendasComponent {
   //Variables
-  title = 'Tiendas';
+  title = 'Listado Ecommname';
   searchText:string="";
   //searchTerm: string = '';
   //listEcomm: any[] = [];
@@ -38,10 +38,17 @@ export class TiendasComponent {
   ngOnInit() {
     const sesion = sessionStorage.getItem('iniciosesion');
     if (sesion?.toString() == "true"){
-      this.apiService.getData().subscribe(data => {
+      
+      this.apiService.getDataOrdersEcom().subscribe({
+      next: data => {
         this.listEcomm = data;
         this.feedDataSource(data);
-      });
+      },
+      error: err => {
+        console.error("Error al obtener datos de Orders Ecom", err);
+      }
+    });
+
     } else {
       this.router.navigate(['inicio-sesion']);
     }
