@@ -4,6 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 export const routes: Routes = [
 
     {
+        path: 'agregar-tiendas',
+        loadComponent: () => import('./agregar-tiendas/agregar-tiendas.component').then(c => c.AgregarTiendasComponent)
+    },
+    {
         path: 'tiendas',
         loadComponent: () => import('./tiendas/tiendas.component').then(c => c.TiendasComponent)
     },

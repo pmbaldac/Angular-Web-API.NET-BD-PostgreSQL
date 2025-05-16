@@ -37,7 +37,7 @@ INSERT INTO ORDERS_ECOM (
     ('Guatire', 13, 13, 13, '2025-02-20', 'Fallidas', '2025-02-20', 13, 13, 13, 0, NULL),
     ('San Antonio de los Altos', 14, 14, 14, '2025-02-20', 'Fallidas', '2025-02-20', 14, 14, 14, 0, NULL),
     ('Tucupita', 15, 15, 15, '2025-02-20', 'Fallidas', '2025-02-20', 15, 15, 15, 0, NULL),
-	('Curiapo', 16, 16, 16, '2025-02-20', 'Exito', '2025-02-20', 16, 16, 16, 0, NULL);
+    ('Curiapo', 16, 16, 16, '2025-02-20', 'Exito', '2025-02-20', 16, 16, 16, 0, NULL);
 	
 CREATE TABLE Users (
     USERNAME VARCHAR(255) NOT NULL,

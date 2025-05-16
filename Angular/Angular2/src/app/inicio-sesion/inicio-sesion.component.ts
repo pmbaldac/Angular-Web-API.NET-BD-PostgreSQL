@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../api.service';
 import * as CryptoJS from 'crypto-js';
@@ -25,46 +24,46 @@ export class InicioSesionComponent {
   }
 
   navigateToPage(): void {
-  console.log('Email: ', this.email);
-  console.log('Password: ', this.password);
+    console.log('Email: ', this.email);
+    console.log('Password: ', this.password);
 
-  if (this.email.trim() == ''){
-    const modalElement = document.getElementById('miModal') as HTMLElement;
-    if (modalElement) {
-      const modal = new bootstrap.Modal(modalElement);
-      this.infoModal = 'Ingrese correo electrónico';
-      modal.show();
-    }
-  } else if(this.password.trim() == '') {
-    const modalElement = document.getElementById('miModal') as HTMLElement;
-    if (modalElement) {
-      const modal = new bootstrap.Modal(modalElement);
-      this.infoModal = 'Ingrese correo contraseña';
-      modal.show();
-    }
-  } else {
-    this.apiService.getValidateCredentials(this.email, CryptoJS.MD5(this.password).toString())
-      .subscribe({
-        next: data => {
-          this.userValid = data.UserValid; 
-          if (this.userValid) {
-            sessionStorage.setItem('iniciosesion', 'true');
-            this.router.navigate(['tiendas']);
-          } else {
-            const modalElement = document.getElementById('miModal') as HTMLElement;
-            if (modalElement) {
-              const modal = new bootstrap.Modal(modalElement);
-              this.infoModal = 'Error en correo eletrónico y/o contraseña';
-              modal.show();
+    if (this.email.trim() == ''){
+      const modalElement = document.getElementById('miModal') as HTMLElement;
+      if (modalElement) {
+        const modal = new bootstrap.Modal(modalElement);
+        this.infoModal = 'Ingrese correo electrónico';
+        modal.show();
+      }
+    } else if(this.password.trim() == '') {
+      const modalElement = document.getElementById('miModal') as HTMLElement;
+      if (modalElement) {
+        const modal = new bootstrap.Modal(modalElement);
+        this.infoModal = 'Ingrese contraseña';
+        modal.show();
+      }
+    } else {
+      this.apiService.getValidateCredentials(this.email, CryptoJS.MD5(this.password).toString())
+        .subscribe({
+          next: data => {
+            this.userValid = data.UserValid; 
+            if (this.userValid) {
+              sessionStorage.setItem('iniciosesion', 'true');
+              this.router.navigate(['tiendas']);
             } else {
-              console.log('Error en correo eletrónico y/o contraseña');
+              const modalElement = document.getElementById('miModal') as HTMLElement;
+              if (modalElement) {
+                const modal = new bootstrap.Modal(modalElement);
+                this.infoModal = 'Error en correo eletrónico y/o contraseña';
+                modal.show();
+              } else {
+                console.log('Error en correo eletrónico y/o contraseña');
+              }
             }
+          },
+          error: err => {
+            console.log('Error al validar usuario', err);
           }
-        },
-        error: err => {
-          console.log('Error al validar usuario', err);
-        }
-      });
+        });
     }
   }
 }

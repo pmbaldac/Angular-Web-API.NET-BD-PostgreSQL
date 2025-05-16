@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MenuComponent } from '../menu/menu.component';
 import { ApiService } from '../api.service';
 import { PostModel } from '../models/postmodels.interface';
@@ -21,7 +21,7 @@ import { Router } from '@angular/router';
 
 export class TiendasComponent {
   //Variables
-  title = 'Listado Ecommname';
+  title = 'Listado Tiendas';
   searchText:string="";
   //searchTerm: string = '';
   //listEcomm: any[] = [];
