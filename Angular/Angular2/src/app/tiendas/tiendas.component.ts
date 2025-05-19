@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-tiendas',
   imports: [MenuComponent, MatTableModule, MatPaginator, MatPaginatorModule, MatSortModule, MatInputModule, MatTooltipModule, FormsModule, CommonModule],

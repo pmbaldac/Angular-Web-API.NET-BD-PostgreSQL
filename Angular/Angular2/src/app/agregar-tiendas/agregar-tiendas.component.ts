@@ -3,11 +3,14 @@ import { MenuComponent } from '../menu/menu.component';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
+import { MatSelectModule } from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-agregar-tiendas',
-  imports: [MenuComponent, FormsModule],
+  imports: [MenuComponent, FormsModule, MatSelectModule, MatFormFieldModule, MatInputModule],
   templateUrl: './agregar-tiendas.component.html',
   styleUrl: './agregar-tiendas.component.css',
   providers: [ApiService]
@@ -20,6 +23,8 @@ export class AgregarTiendasComponent {
   status: string = '';
   RowAffected: number = 0;
   Message: string = '';
+  selected = '';
+
   constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit() {

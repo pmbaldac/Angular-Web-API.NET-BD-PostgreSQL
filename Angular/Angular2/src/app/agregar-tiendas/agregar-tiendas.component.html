@@ -1,26 +1,27 @@
 <app-menu></app-menu>
+<h3 class="text-center text-primary">{{title}}</h3> 
+<hr>
 <form>
     <div class="container">
-        <br/>
-        <h3 class="text-center text-primary">{{title}}</h3> 
-
         <div class="center-div">
+            <br>
+            <mat-form-field>
+                <mat-label>Nombre de la tienda</mat-label>
+                <input matInput id="ecommname" [(ngModel)]="ecommname" name="ecommname">
+            </mat-form-field>
 
-            <div class="form-group">
-                <label for="ecommname">Nombre de tienda</label>
-                <input type="text" class="form-control" id="ecommname" [(ngModel)]="ecommname" name="ecommname" >
-            </div>
+            <br>
 
-            <div class="form-group">
-                <label for="status">Estatus</label>
-                <select class="form-select" id="status" [(ngModel)]="status" name="status">
-                    <option value="Exito">Éxito</option>
-                    <option value="Fallidas">Fallidas</option>
-                </select>
-            </div>
+            <mat-form-field>
+                <mat-label>Estatus</mat-label>
+                <mat-select id="status" [(ngModel)]="status" name="status">
+                    <mat-option value="Exito">Éxito</mat-option>
+                    <mat-option value="Fallidas">Fallidas</mat-option>
+                </mat-select>
+            </mat-form-field>
 
         </div>
-        
+ 
         <br/>
         <div class="text-center">
             <button (click)="guardar()" type="submit" class="btn btn-primary">Guardar</button>
