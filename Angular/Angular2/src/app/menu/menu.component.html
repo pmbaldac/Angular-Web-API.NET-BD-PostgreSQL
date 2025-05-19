@@ -1,14 +1,26 @@
-<!--nav>
-    <a routerLink="/tiendas">Tiendas</a>
-    |
-    <a routerLink="/sistemasoperativos">SO</a>
-</nav!-->
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+  <mat-icon>menu</mat-icon>
+</button>
 
-<button mat-button [matMenuTriggerFor]="menu">Menu</button>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item routerLink="/">Iniciar Sesión</button>
-  <button mat-menu-item routerLink="/agregar-tiendas">Agregar Tiendas</button>
-  <button mat-menu-item routerLink="/tiendas">Listado Tiendas</button>
-  <button mat-menu-item routerLink="/grafico">Gráfico Estatus Tiendas</button>
-  <!--button mat-menu-item routerLink="/sistemasoperativos">Sistemas Operativos</button!-->
+  <button mat-menu-item routerLink="/">
+    <mat-icon>account_circle</mat-icon>
+    <span>Iniciar Sesión</span>
+  </button>
+  <button mat-menu-item routerLink="/agregar-tiendas">
+    <mat-icon>add_circle</mat-icon>
+    <span>Agregar Tiendas</span>
+  </button>
+  <button mat-menu-item routerLink="/tiendas">
+    <mat-icon>store</mat-icon>
+    <span>Listado Tiendas</span>
+  </button>
+  <button mat-menu-item routerLink="/grafico">
+    <mat-icon> pie_chart</mat-icon>
+    <span>Gráfico Estatus Tiendas</span>
+  </button>
+  <button mat-menu-item disabled routerLink="/sistemasoperativos">
+    <mat-icon>devices</mat-icon>
+    <span>Sistemas Operativos</span>
+  </button>
 </mat-menu>
