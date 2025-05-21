@@ -13,4 +13,4 @@ Agregar nuevas tiendas
 
 # Gráfico de tiendas por estatus
 Mostrar gráfico tipo torta, donde se indica el estatus de la tienda (Activa - Parado)
-![Agregar Tiendas](https://github.com/pmbaldac/Angular-Web-API.NET-BD-PostgreSQL/blob/main/Angular/Angular2/ruta/Grafico%20Tiendas.jpg?raw=true)
+![Grafico Tiendas](https://github.com/pmbaldac/Angular-Web-API.NET-BD-PostgreSQL/blob/main/Angular/Angular2/ruta/Grafico%20Tiendas.jpg?raw=true)
