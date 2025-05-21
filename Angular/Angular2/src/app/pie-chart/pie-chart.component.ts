@@ -13,8 +13,8 @@ import { Router } from '@angular/router';
 })
 export class PieChartComponent {
   title = 'Gráfico Estatus Tiendas';
-  exito: number = 0;
-  fallida: number = 0;
+  activa: number = 0;
+  parado: number = 0;
   constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit() {
@@ -25,10 +25,10 @@ export class PieChartComponent {
       next: data => {
         for (let i = 0; i < data.length; i++) {
           let status = data[i].ORDERCUST.toUpperCase();
-          if (status === 'EXITO') {
-            this.exito++;
+          if (status === 'ACTIVA') {
+            this.activa++;
           } else {
-            this.fallida++;
+            this.parado++;
           }
         }
         this.crearGrafico();
@@ -48,9 +48,9 @@ export class PieChartComponent {
     new Chart('pieChart', {
       type: 'pie',
       data: {
-        labels: ['Exito', 'Fallidas'],
+        labels: ['Activa', 'Parado'],
         datasets: [{
-          data: [this.exito, this.fallida],
+          data: [this.activa, this.parado],
           backgroundColor: ['blue', 'yellow']
         }]
       }

@@ -46,22 +46,22 @@
     
     <div class="form-group">
       <label for="nro" matTooltip="Número Items" matTooltipPosition="right">Nro.</label>
-      <input type="text" id="nro" readonly class="form-control mr-2" aria-label="nro" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST.toUpperCase() === 'FALLIDAS'}" [(ngModel)]="selectedRow.ECOMMID">
+      <input type="text" id="nro" readonly class="form-control mr-2" aria-label="nro" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST.toUpperCase() === 'PARADO'}" [(ngModel)]="selectedRow.ECOMMID">
     </div>
 
     <div class="form-group">
       <label for="ecommname" matTooltip="Nombre Tienda" matTooltipPosition="right">Nombre de Tienda</label>
-      <input type="text" id="ecommname" readonly class="form-control mr-2" aria-label="ecommname" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST.toUpperCase() === 'FALLIDAS'}" [(ngModel)]="selectedRow.ECOMMNAME">
+      <input type="text" id="ecommname" readonly class="form-control mr-2" aria-label="ecommname" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST.toUpperCase() === 'PARADO'}" [(ngModel)]="selectedRow.ECOMMNAME">
     </div>
 
     <div class="form-group">
       <label for="ordercust" matTooltip="Estatus" matTooltipPosition="right">Estatus</label>
-      <input type="text" id="ordercust" readonly class="form-control mr-2" aria-label="ordercust" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST.toUpperCase() === 'FALLIDAS'}" [(ngModel)]="selectedRow.ORDERCUST">
+      <input type="text" id="ordercust" readonly class="form-control mr-2" aria-label="ordercust" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST.toUpperCase() === 'PARADO'}" [(ngModel)]="selectedRow.ORDERCUST">
     </div>
 
     <div class="form-group">
       <label for="createddaterp" matTooltip="Fecha Creación" matTooltipPosition="right">Fecha</label>
-      <input type="text" id="createddaterp" readonly class="form-control mr-2" aria-label="createddaterp" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST.toUpperCase() === 'FALLIDAS'}" [(ngModel)]="selectedRow.CREATEDDATERP">
+      <input type="text" id="createddaterp" readonly class="form-control mr-2" aria-label="createddaterp" aria-describedby="basic-addon1" [ngClass]="{'highlight': selectedRow.ORDERCUST.toUpperCase() === 'PARADO'}" [(ngModel)]="selectedRow.CREATEDDATERP">
     </div>
 
   </div>
@@ -73,22 +73,22 @@
 
           <ng-container matColumnDef="ECOMMID">
             <th mat-header-cell *matHeaderCellDef mat-sort-header="ECOMMID"> Nro. </th>
-            <td id="num" mat-cell *matCellDef="let element" (click)="selectRow(element)" [ngClass]="{'highlight': element.ORDERCUST.toUpperCase() === 'FALLIDAS'}"> {{element.ECOMMID}} </td>
+            <td id="num" mat-cell *matCellDef="let element" (click)="selectRow(element)" [ngClass]="{'highlight': element.ORDERCUST.toUpperCase() === 'PARADO'}"> {{element.ECOMMID}} </td>
           </ng-container>
         
           <ng-container matColumnDef="ECOMMNAME">
             <th mat-header-cell *matHeaderCellDef mat-sort-header="ECOMMNAME"> Nombre de Tienda </th>
-            <td mat-cell *matCellDef="let element" (click)="selectRow(element)" [ngClass]="{'highlight': element.ORDERCUST.toUpperCase() === 'FALLIDAS'}"> {{element.ECOMMNAME}} </td>
+            <td mat-cell *matCellDef="let element" (click)="selectRow(element)" [ngClass]="{'highlight': element.ORDERCUST.toUpperCase() === 'PARADO'}"> {{element.ECOMMNAME}} </td>
           </ng-container>
         
           <ng-container matColumnDef="ORDERCUST">
             <th mat-header-cell *matHeaderCellDef mat-sort-header="ORDERCUST"> Estatus </th>
-            <td mat-cell *matCellDef="let element" (click)="selectRow(element)" [ngClass]="{'highlight': element.ORDERCUST.toUpperCase() === 'FALLIDAS'}"> {{element.ORDERCUST}} </td>
+            <td mat-cell *matCellDef="let element" (click)="selectRow(element)" [ngClass]="{'highlight': element.ORDERCUST.toUpperCase() === 'PARADO'}"> {{element.ORDERCUST}} </td>
           </ng-container>
         
           <ng-container matColumnDef="CREATEDDATERP">
             <th mat-header-cell *matHeaderCellDef mat-sort-header="CREATEDDATERP"> Fecha </th>
-            <td mat-cell *matCellDef="let element" (click)="selectRow(element)" [ngClass]="{'highlight': element.ORDERCUST.toUpperCase() === 'FALLIDAS'}"> {{element.CREATEDDATERP}} </td>
+            <td mat-cell *matCellDef="let element" (click)="selectRow(element)" [ngClass]="{'highlight': element.ORDERCUST.toUpperCase() === 'PARADO'}"> {{element.CREATEDDATERP}} </td>
           </ng-container>
           
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
