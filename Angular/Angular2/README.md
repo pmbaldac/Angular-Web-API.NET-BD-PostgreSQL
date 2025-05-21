@@ -4,7 +4,7 @@ Iniciar Sesión al Sistema, colocando correo y contraseña
 ![Login](https://github.com/pmbaldac/Angular-Web-API.NET-BD-PostgreSQL/blob/main/Angular/Angular2/ruta/Login.jpg?raw=true)
 
 # Listar Tiendas
-Listar tiendas en una grilla (filtri y paginación)
+Listar tiendas en grilla (filtro y paginación)
 ![Listado_Tiendas](https://github.com/pmbaldac/Angular-Web-API.NET-BD-PostgreSQL/blob/main/Angular/Angular2/ruta/Listado%20Tiendas.jpg?raw=true)
 
 # Agregar Tiendas
